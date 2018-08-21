@@ -20,7 +20,26 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+  <settings>
+    <setting name="useActualParamName" value="false" />
+  </settings>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC" />
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://192.168.88.137:3306/company?useSSL=false" />
+        <property name="username" value="root" />
+        <property name="password" value="654321" />
+      </dataSource>
+    </environment>
+  </environments>
   <mappers>
-    <mapper resource="config/AccountMapper.xml"/>
+    <mapper resource="config/AccountMapper.xml" />
   </mappers>
 </configuration>
+<!--<configuration>-->
+  <!--<mappers>-->
+    <!--<mapper resource="config/AccountMapper.xml"/>-->
+  <!--</mappers>-->
+<!--</configuration>-->

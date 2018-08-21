@@ -25,14 +25,14 @@
   <!--change to your endpoint package-->
   <context:component-scan base-package="com.picc.business.cms"/>
 
-  <!--gaussdb-->
-  <bean id="dataSource"
-    class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    <property name="driverClassName" value="com.huawei.gauss.jdbc.ZenithDriver"/>
-    <property name="url" value="jdbc:zenith:@10.133.247.29:9079"/>
-    <property name="username" value="piccdba"/>
-    <property name="password" value="gaussdb_123"/>
-  </bean>
+  <!--&lt;!&ndash;gaussdb&ndash;&gt;-->
+  <!--<bean id="dataSource"-->
+    <!--class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+    <!--<property name="driverClassName" value="com.huawei.gauss.jdbc.ZenithDriver"/>-->
+    <!--<property name="url" value="jdbc:zenith:@10.133.247.29:9079"/>-->
+    <!--<property name="username" value="piccdba"/>-->
+    <!--<property name="password" value="gaussdb_123"/>-->
+  <!--</bean>-->
 
   <!--&lt;!&ndash;mysql&ndash;&gt;-->
   <!--<bean id="dataSource"-->
@@ -42,6 +42,23 @@
     <!--<property name="username" value="root"/>-->
     <!--<property name="password" value="654321"/>-->
   <!--</bean>-->
+
+  <bean id="dataSource"
+    class="org.apache.commons.dbcp2.managed.BasicManagedDataSource"
+    destroy-method="close">
+    <property name="xaDataSourceInstance">
+      <bean class="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource">
+        <property name="url" value="jdbc:mysql://192.168.88.137:3306/company?useSSL=false" />
+        <property name="user" value="root" />
+        <property name="password" value="654321" />
+      </bean>
+    </property>
+    <!--<property name="transactionManager" ref="transactionManagerImpl" />-->
+    <property name="driverClassName" value="jdbc:mysql://192.168.88.137:3306/company?useSSL=false" />
+    <property name="url" value="jdbc:mysql://192.168.88.137:3306/company?useSSL=false" />
+    <property name="username" value="root" />
+    <property name="password" value="654321" />
+  </bean>
 
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource"/>

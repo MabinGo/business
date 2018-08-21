@@ -80,22 +80,26 @@
       <artifactId>jta</artifactId>
       <version>1.1</version>
     </dependency>
-
-    <!--gaussdb dependency-->
     <dependency>
-      <groupId>com.huawei.gauss.jdbc</groupId>
-      <artifactId>ZenithDriver</artifactId>
-      <scope>system</scope>
-      <version>V100R006C10B300</version>
-      <systemPath>${project.basedir}/../libs/com.huawei.gauss.jdbc.ZenithDriver.jar</systemPath>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
     </dependency>
 
-    <!--&lt;!&ndash;mysql dependency&ndash;&gt;-->
+    <!--&lt;!&ndash;gaussdb dependency&ndash;&gt;-->
     <!--<dependency>-->
-      <!--<groupId>mysql</groupId>-->
-      <!--<artifactId>mysql-connector-java</artifactId>-->
-      <!--<version>5.1.46</version>-->
+      <!--<groupId>com.huawei.gauss.jdbc</groupId>-->
+      <!--<artifactId>ZenithDriver</artifactId>-->
+      <!--<scope>system</scope>-->
+      <!--<version>V100R006C10B300</version>-->
+      <!--<systemPath>${project.basedir}/../libs/com.huawei.gauss.jdbc.ZenithDriver.jar</systemPath>-->
     <!--</dependency>-->
+
+    <!--mysql dependency-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.46</version>
+    </dependency>
 
   </dependencies>
 
