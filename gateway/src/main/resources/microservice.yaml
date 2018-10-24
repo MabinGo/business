@@ -27,7 +27,7 @@ service_description:
 #The microservice name should be unique within an application.
 #The name can contain digits, uppercase and lowercase letters, hyphens(-), underscores(_), and periods(.); and can neither start nor end with punctuations.
 #The naming rule is as follows: ^[a-zA-Z0-9]+$|^[a-zA-Z0-9][a-zA-Z0-9_-.]*[a-zA-Z0-9]$.
-  name: providerA-service
+  name: gateway-service
 #Indicates a service version
   version: 0.0.1
 servicecomb:
@@ -37,31 +37,11 @@ servicecomb:
       address: http://127.0.0.1:30100
   #Specifies the rest transport listening IP address.
   rest:
-    address: 0.0.0.0:8081
+    address: 0.0.0.0:8080
   #Specifies the highway transport listening IP address.
   highway:
-    address: 0.0.0.0:7071
+    address: 0.0.0.0:7070
   handler:
     chain:
       Provider:
-        default: bizkeeper-provider, qps-flowcontrol-provider
-  isolation:
-    Provider:
-      timeout:
-        enabled: true
-      timeoutInMilliseconds: 30000
-      maxConcurrentRequests: 10
-  circuitBreaker:
-    Provider:
-      providerA-service:
-        requestVolumeThreshold: 3
-        sleepWindowInMilliseconds: 15000
-  fallbackpolicy:
-    Provider:
-      providerA-service:
-        policy: returnnull
-  flowcontrol:
-    Provider:
-      qps:
-        global:
-          limit: 10
+        default: {}
