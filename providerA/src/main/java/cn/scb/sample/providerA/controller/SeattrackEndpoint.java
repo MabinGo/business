@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.picc.business.cms.controller;
+package cn.scb.sample.providerA.controller;
 
 import javax.ws.rs.core.Response.Status;
 
@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RestSchema(schemaId = "seattrackEndpoint")
-@RequestMapping(path = "/cms")
+@RequestMapping(path = "/providerA")
 public class SeattrackEndpoint {
 
   //  @RequestMapping(path = "/seat_tracks",method = RequestMethod.POST)

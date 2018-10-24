@@ -21,15 +21,15 @@
 # 3.http://servicecomb.incubator.apache.org/users/communicate-protocol/
 
 #Indicates an application name
-APPLICATION_ID: business
+APPLICATION_ID: sample
 service_description:
 #Indicates a microservice name
 #The microservice name should be unique within an application.
 #The name can contain digits, uppercase and lowercase letters, hyphens(-), underscores(_), and periods(.); and can neither start nor end with punctuations.
 #The naming rule is as follows: ^[a-zA-Z0-9]+$|^[a-zA-Z0-9][a-zA-Z0-9_-.]*[a-zA-Z0-9]$.
-  name: cms-service
+  name: providerA-service
 #Indicates a service version
-  version: 1.0.1
+  version: 0.0.1
 servicecomb:
   service:
   #Specifies the service center IP address.
@@ -53,12 +53,12 @@ servicecomb:
       maxConcurrentRequests: 10
   circuitBreaker:
     Provider:
-      cms-service:
+      providerA-service:
         requestVolumeThreshold: 3
         sleepWindowInMilliseconds: 15000
   fallbackpolicy:
     Provider:
-      cms-service:
+      providerA-service:
         policy: returnnull
   flowcontrol:
     Provider:

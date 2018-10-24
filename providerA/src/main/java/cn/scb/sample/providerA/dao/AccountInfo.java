@@ -15,16 +15,37 @@
  * limitations under the License.
  */
 
-package com.picc.business.cms.dao;
+package cn.scb.sample.providerA.dao;
 
-public interface AccountMapper {
-  AccountInfo getAccountInfo(long userId);
+public class AccountInfo {
+  private long userId;
 
-  void updateAccountInfo(AccountInfo info);
+  private double totalBalance;
 
-  void createAccountInfo(AccountInfo info);
+  private boolean reserved;
 
-  void clear();
+  public long getUserId() {
+    return userId;
+  }
 
-//  Double queryReduced();
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
+
+  public double getTotalBalance() {
+    return totalBalance;
+  }
+
+  public void setTotalBalance(double totalBalance) {
+    this.totalBalance = totalBalance;
+  }
+
+  public boolean isReserved() {
+    return reserved;
+  }
+
+  public void setReserved(boolean reserved) {
+    this.reserved = reserved;
+  }
 }
+

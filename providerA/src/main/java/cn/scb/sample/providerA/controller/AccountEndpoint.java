@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.picc.business.cms.controller;
+package cn.scb.sample.providerA.controller;
 
 import org.apache.servicecomb.provider.rest.common.RestSchema;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +25,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.picc.business.cms.dao.AccountInfo;
-import com.picc.business.cms.dao.AccountMapper;
+import cn.scb.sample.providerA.dao.AccountInfo;
+import cn.scb.sample.providerA.dao.AccountMapper;
 
 @RestSchema(schemaId = "accountEndpoint")
 @RequestMapping(path = "/")

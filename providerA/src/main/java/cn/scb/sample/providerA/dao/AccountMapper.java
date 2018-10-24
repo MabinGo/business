@@ -15,14 +15,16 @@
  * limitations under the License.
  */
 
-package com.picc.business.cms;
+package cn.scb.sample.providerA.dao;
 
-import org.apache.servicecomb.foundation.common.utils.BeanUtils;
-import org.apache.servicecomb.foundation.common.utils.Log4jUtils;
+public interface AccountMapper {
+  AccountInfo getAccountInfo(long userId);
 
-public class CmsApplication {
-  public static void main(String[] args) throws Exception {
-    Log4jUtils.init();
-    BeanUtils.init();
-  }
+  void updateAccountInfo(AccountInfo info);
+
+  void createAccountInfo(AccountInfo info);
+
+  void clear();
+
+//  Double queryReduced();
 }

@@ -17,9 +17,9 @@
   -->
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.picc.business.cms.dao.AccountMapper">
+<mapper namespace="cn.scb.sample.providerA.dao.AccountMapper">
   <resultMap id="accountInfo"
-    type="com.picc.business.cms.dao.AccountInfo">
+    type="cn.scb.sample.providerA.dao.AccountInfo">
     <result column="ID" jdbcType="BIGINT" property="userId" />
     <result column="RESERVED" jdbcType="BOOLEAN" property="reserved" />
     <result column="TOTAL_BALANCE" jdbcType="DECIMAL"
@@ -45,7 +45,7 @@
     from T_ACCOUNT where ID = #{1,jdbcType=BIGINT}
   </select>
 
-  <update id="updateAccountInfo" parameterType="com.picc.business.cms.dao.AccountInfo">
+  <update id="updateAccountInfo" parameterType="cn.scb.sample.providerA.dao.AccountInfo">
     update
     T_ACCOUNT
     set

@@ -15,18 +15,14 @@
  * limitations under the License.
  */
 
-package com.picc.business.cms.controller;
+package cn.scb.sample.providerA;
 
-import org.apache.servicecomb.provider.rest.common.RestSchema;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.apache.servicecomb.foundation.common.utils.BeanUtils;
+import org.apache.servicecomb.foundation.common.utils.Log4jUtils;
 
-@RestSchema(schemaId = "statisticEndpoint")
-@RequestMapping(path = "/cms")
-public class StatisticEndpoint {
-
-  @GetMapping(path = "/activity_statistics")
-  public String getActivityStatistics() {
-    return "getActivityStatistics";
+public class ProviderAApplication {
+  public static void main(String[] args) throws Exception {
+    Log4jUtils.init();
+    BeanUtils.init();
   }
 }

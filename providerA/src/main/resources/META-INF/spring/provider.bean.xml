@@ -23,7 +23,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
   <!--change to your endpoint package-->
-  <context:component-scan base-package="com.picc.business.cms"/>
+  <context:component-scan base-package="cn.scb.sample.providerA"/>
   <context:property-placeholder location="classpath:dbcp.properties" />
 
   <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
@@ -31,6 +31,10 @@
     <property name="url" value="${db.url}"/>
     <property name="username" value="${db.username}"/>
     <property name="password" value="${db.password}"/>
+    <property name="validationQuery" value="select 1 from dual" />
+    <property name="testOnBorrow" value="true" />
+    <property name="testOnReturn" value="true" />
+    <property name="testWhileIdle" value="true" />
   </bean>
 
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -39,7 +43,7 @@
   </bean>
 
   <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-    <property name="mapperInterface" value="com.picc.business.cms.dao.AccountMapper"/>
+    <property name="mapperInterface" value="cn.scb.sample.providerA.dao.AccountMapper"/>
     <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
   </bean>
 
