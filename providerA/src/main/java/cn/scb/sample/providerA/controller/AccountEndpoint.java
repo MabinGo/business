@@ -29,7 +29,7 @@ import cn.scb.sample.providerA.dao.AccountInfo;
 import cn.scb.sample.providerA.dao.AccountMapper;
 
 @RestSchema(schemaId = "accountEndpoint")
-@RequestMapping(path = "/")
+@RequestMapping(path = "/account")
 public class AccountEndpoint {
   private AccountMapper accountMapper;
 

@@ -38,10 +38,17 @@ servicecomb:
   #Specifies the rest transport listening IP address.
   rest:
     address: 0.0.0.0:8080
-  #Specifies the highway transport listening IP address.
-  highway:
-    address: 0.0.0.0:7070
+#  #Specifies the highway transport listening IP address.
+#  highway:
+#    address: 0.0.0.0:7070
   handler:
     chain:
-      Provider:
-        default: {}
+      default: {}
+  http:
+    dispatcher:
+      edge:
+        default:
+          enabled: true
+          prefix: rest
+          withVersion: false
+          prefixSegmentCount: 2
