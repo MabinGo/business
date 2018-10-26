@@ -26,7 +26,8 @@
   <packaging>pom</packaging>
   <modules>
     <module>gateway</module>
-    <module>providerA</module>
+    <module>providerV1</module>
+    <module>providerV2</module>
     <module>docker-build-config</module>
   </modules>
 

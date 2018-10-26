@@ -27,9 +27,9 @@ service_description:
 #The microservice name should be unique within an application.
 #The name can contain digits, uppercase and lowercase letters, hyphens(-), underscores(_), and periods(.); and can neither start nor end with punctuations.
 #The naming rule is as follows: ^[a-zA-Z0-9]+$|^[a-zA-Z0-9][a-zA-Z0-9_-.]*[a-zA-Z0-9]$.
-  name: gateway-service
+  name: provider-service
 #Indicates a service version
-  version: 0.0.1
+  version: 2.0.0
 servicecomb:
   service:
   #Specifies the service center IP address.
@@ -37,31 +37,11 @@ servicecomb:
       address: http://127.0.0.1:30100
   #Specifies the rest transport listening IP address.
   rest:
-    address: 0.0.0.0:8080
-#  #Specifies the highway transport listening IP address.
-#  highway:
-#    address: 0.0.0.0:7070
+    address: 0.0.0.0:8082
+  #Specifies the highway transport listening IP address.
+  highway:
+    address: 0.0.0.0:7072
   handler:
     chain:
-      default: {}
-  http:
-    dispatcher:
-      edge:
-        default:
-          enabled: true
-          prefix: rest
-          withVersion: true
-          prefixSegmentCount: 2
-        url:
-          enabled: true
-          mappings:
-            providerV1:
-              prefixSegmentCount: 2
-              path: "/v1/.*"
-              microserviceName: provider-service
-              versionRule: 1.0.0-2.0.0
-            providerV2:
-              prefixSegmentCount: 2
-              path: "/v2/.*"
-              microserviceName: provider-service
-              versionRule: 2.0.0+
+      Provider:
+        default: {}

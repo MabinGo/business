@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Licensed to the Apache Software Foundation (ASF) under one or more
+  ~ contributor license agreements.  See the NOTICE file distributed with
+  ~ this work for additional information regarding copyright ownership.
+  ~ The ASF licenses this file to You under the Apache License, Version 2.0
+  ~ (the "License"); you may not use this file except in compliance with
+  ~ the License.  You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.scb.sample.providerV1.dao.AccountMapper">
+  <resultMap id="accountInfo"
+    type="cn.scb.sample.providerV1.dao.AccountInfo">
+    <result column="ID" jdbcType="BIGINT" property="userId" />
+    <result column="RESERVED" jdbcType="BOOLEAN" property="reserved" />
+    <result column="TOTAL_BALANCE" jdbcType="DECIMAL"
+      property="totalBalance" />
+  </resultMap>
+
+  <sql id="all_column">
+    ID, RESERVED, TOTAL_BALANCE
+  </sql>
+
+  <insert id="createAccountInfo">
+    insert into T_ACCOUNT (
+    <include refid="all_column" />
+    )
+    values (#{userId,jdbcType=BIGINT},
+    #{reserved,jdbcType=BOOLEAN},#{totalBalance,jdbcType=DECIMAL})
+  </insert>
+
+  <select id="getAccountInfo" parameterType="java.lang.Long"
+    resultMap="accountInfo">
+    select
+    <include refid="all_column" />
+    from T_ACCOUNT where ID = #{1,jdbcType=BIGINT}
+  </select>
+
+  <update id="updateAccountInfo" parameterType="cn.scb.sample.providerV1.dao.AccountInfo">
+    update
+    T_ACCOUNT
+    set
+    RESERVED = #{reserved,jdbcType=BOOLEAN},
+    TOTAL_BALANCE =
+    #{totalBalance,jdbcType=DECIMAL}
+    where
+    ID =
+    #{userId,jdbcType=BIGINT}
+  </update>
+
+  <delete id="clear">
+    delete from T_ACCOUNT
+  </delete>
+
+  <select id="queryReduced" resultType="java.lang.Double">
+    select sum(TOTAL_BALANCE)
+    from T_ACCOUNT
+  </select>
+</mapper>
