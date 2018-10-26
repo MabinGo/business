@@ -52,7 +52,7 @@ public class AccountEndpoint {
     return accountMapper.getAccountInfo(id);
   }
 
-  @PostMapping(path = "/update")
+  @PostMapping(path = "/update/dec")
   public void pay(long id, double balance) {
     AccountInfo info = this.query(id);
     if (info != null) {
